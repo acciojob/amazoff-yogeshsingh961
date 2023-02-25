@@ -8,7 +8,6 @@ import java.util.List;
 @Service
 public class OrderService {
     @Autowired
-    static
     OrderRepository orderRepository = new OrderRepository();
 
     public void addOrder(Order order) {
@@ -23,7 +22,7 @@ public class OrderService {
         orderRepository.addPartner(partnerId);
     }
 
-    public static void addOrderPartnerPair(String orderId, String partnerId) {
+    public void addOrderPartnerPair(String orderId, String partnerId) {
         orderRepository.addOrderPartnerPair(orderId, partnerId);
     }
 
@@ -51,7 +50,7 @@ public class OrderService {
         return orderRepository.getOrdersLeftAfterGivenTimeByPartnerId(time, partnerId);
     }
 
-    public static String getLastDeliveryTimeByPartnerId(String partnerId) {
+    public String getLastDeliveryTimeByPartnerId(String partnerId) {
         return orderRepository.getLastDeliveryTimeByPartnerId(partnerId);
     }
 

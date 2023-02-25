@@ -10,7 +10,6 @@ import java.util.List;
 @Repository
 public class OrderRepository {
 
-
     private HashMap<String, Order> orderHashMap;
     private HashMap<String, DeliveryPartner> deliveryPartnerHashMap;
     private HashMap<String, String> orderPartnerHashMap;
@@ -35,7 +34,7 @@ public class OrderRepository {
         deliveryPartnerHashMap.put(partnerId, new DeliveryPartner(partnerId));
     }
 
-    public void  addOrderPartnerPair(String orderId, String partnerId) {
+    public void addOrderPartnerPair(String orderId, String partnerId) {
 
         if(orderHashMap.containsKey(orderId) && deliveryPartnerHashMap.containsKey(partnerId)){
 
@@ -103,7 +102,7 @@ public class OrderRepository {
             for(String order: orders){
                 if(orderHashMap.containsKey(order)){
                     Order currOrder = orderHashMap.get(order);
-                    time = Math.max(time, Integer.parseInt(currOrder.getDeliveryTime()));
+                    time = Math.max(time, currOrder.getDeliveryTime());
                 }
             }
         }
@@ -134,7 +133,7 @@ public class OrderRepository {
             for(String order: orders){
                 if(orderHashMap.containsKey(order)){
                     Order currOrder = orderHashMap.get(order);
-                    if(time < Integer.parseInt(currOrder.getDeliveryTime())){
+                    if(time < currOrder.getDeliveryTime()){
                         countOfOrders += 1;
                     }
                 }

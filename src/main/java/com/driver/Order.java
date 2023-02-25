@@ -3,7 +3,7 @@ package com.driver;
 public class Order {
 
     private String id;
-    private String deliveryTime;
+    private int deliveryTime;
 
     public Order(String id, String deliveryTime) {
 
@@ -16,7 +16,7 @@ public class Order {
         hours= Integer.parseInt(deliveryTime.substring(0,2));
         minutes= Integer.parseInt(deliveryTime.substring(3,5));
         hours=hours*60;
-        this.deliveryTime=String.valueOf(hours)+String.valueOf(minutes);
+        this.deliveryTime=hours+minutes;
 
     }
 
@@ -24,15 +24,5 @@ public class Order {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDeliveryTime() {
-        return deliveryTime;
-    }
-
-    public void setDeliveryTime(String deliveryTime) {
-        this.deliveryTime = deliveryTime;
-    }
+    public int getDeliveryTime() {return deliveryTime;}
 }
