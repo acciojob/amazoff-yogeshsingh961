@@ -103,7 +103,7 @@ public class OrderRepository {
             for(String order: orders){
                 if(orderHashMap.containsKey(order)){
                     Order currOrder = orderHashMap.get(order);
-                    time = Math.max(time, currOrder.getDeliveryTime());
+                    time = Math.max(time, Integer.parseInt(currOrder.getDeliveryTime()));
                 }
             }
         }
@@ -134,7 +134,7 @@ public class OrderRepository {
             for(String order: orders){
                 if(orderHashMap.containsKey(order)){
                     Order currOrder = orderHashMap.get(order);
-                    if(time < currOrder.getDeliveryTime()){
+                    if(time < Integer.parseInt(currOrder.getDeliveryTime())){
                         countOfOrders += 1;
                     }
                 }
