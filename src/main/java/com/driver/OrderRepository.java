@@ -151,6 +151,10 @@ public class OrderRepository {
             }
         }
         return countOfOrders;
+
+        //OR
+        // total unassigned orders = no of total orders-no of total assigned orders
+        //total=orderHashMap.size()-orderPartnerHashMap.size();
     }
 
     public List<String> getOrdersByPartnerId(String partnerId) {
